@@ -4,13 +4,56 @@ Clients log in with email + any of their order UIDs.
 See orders, download deliverables, pay via ABA/Wing.
 """
 from __future__ import annotations
-import sqlite3, secrets, time
+import sqlite3, secrets, time, os, json
 from pathlib import Path
 from fastapi import FastAPI, HTTPException, Header, Form
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 
-ROOT = Path(r"D:\01_PROJECTS\AIOS")
-DB   = ROOT / "04_MEMORY" / "aios_memory" / "royal_memory.db"
+ROOT = Path(__file__).resolve().parent
+DB = Path(os.environ.get("AIOS_DB_PATH", "/tmp/royal_memory.db"))
+CATALOG_SEED = ROOT / "catalog_seed.json"
+
+def _initialize_database():
+    DB.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(str(DB))
+    try:
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS app_catalog (
+                app_slug TEXT PRIMARY KEY,
+                app_name TEXT,
+                category TEXT,
+                description TEXT DEFAULT '',
+                price_usd REAL DEFAULT 0,
+                price_tier TEXT DEFAULT '',
+                owner_division TEXT DEFAULT '',
+                status TEXT
+            )
+        """)
+        existing = {r[1] for r in conn.execute("PRAGMA table_info(app_catalog)")}
+        for name, kind in (
+            ("description", "TEXT DEFAULT ''"),
+            ("price_tier", "TEXT DEFAULT ''"),
+            ("owner_division", "TEXT DEFAULT ''")
+        ):
+            if name not in existing:
+                conn.execute(f"ALTER TABLE app_catalog ADD COLUMN {name} {kind}")
+
+        count = conn.execute("SELECT COUNT(*) FROM app_catalog").fetchone()[0]
+        if count == 0 and CATALOG_SEED.exists():
+            entries = json.loads(CATALOG_SEED.read_text(encoding="utf-8"))
+            conn.executemany("""
+                INSERT OR IGNORE INTO app_catalog
+                (app_slug, app_name, category, description, price_usd,
+                 price_tier, owner_division, status)
+                VALUES
+                (:app_slug, :app_name, :category, :description, :price_usd,
+                 :price_tier, :owner_division, :status)
+            """, entries)
+        conn.commit()
+    finally:
+        conn.close()
+
+_initialize_database()
 
 app = FastAPI(title="AIOS Client Portal")
 
@@ -31,10 +74,21 @@ BUSINESS = {
 }
 
 def _q(sql, args=()):
-    conn = sqlite3.connect(str(DB)); conn.row_factory = sqlite3.Row
-    c = conn.cursor(); c.execute(sql, args)
-    rows = [dict(r) for r in c.fetchall()]; conn.close()
-    return rows
+    conn = sqlite3.connect(str(DB))
+    conn.row_factory = sqlite3.Row
+    try:
+        c = conn.cursor()
+        c.execute(sql, args)
+        return [dict(r) for r in c.fetchall()]
+    except sqlite3.OperationalError as exc:
+        if "no such table" in str(exc).lower():
+            raise HTTPException(
+                503,
+                "Customer order storage is not configured on this deployment."
+            ) from exc
+        raise
+    finally:
+        conn.close()
 
 # ============================================================
 # HTML pages
@@ -254,11 +308,20 @@ def portal_orders(authorization: str = Header(None)):
 
 @app.get("/api/portal/download/{uid}")
 def portal_download(uid: str, authorization: str = Header(None)):
-    rows = _q("SELECT output_path FROM orders WHERE order_uid=?", (uid,))
+    tok = (authorization or "").replace("Bearer ", "").strip()
+    if not tok or tok not in TOKENS:
+        raise HTTPException(401, "invalid")
+    rows = _q(
+        "SELECT output_path, customer_email FROM orders WHERE order_uid=?",
+        (uid,)
+    )
     if not rows or not rows[0]["output_path"]:
         raise HTTPException(404, "no deliverable")
+    if (rows[0]["customer_email"] or "").strip().lower() != TOKENS[tok]["email"]:
+        raise HTTPException(403, "forbidden")
     p = Path(rows[0]["output_path"])
-    if not p.exists(): raise HTTPException(404, "file missing")
+    if not p.is_file():
+        raise HTTPException(404, "file missing")
     return FileResponse(p, filename=p.name)
 
 STORE_HTML = """<!DOCTYPE html><html><head>
@@ -342,11 +405,11 @@ def store_page(): return STORE_HTML
 def store_catalog():
     conn = sqlite3.connect(str(DB)); conn.row_factory = sqlite3.Row
     c = conn.cursor()
-    c.execute("SELECT app_slug, app_name, category, description, price_usd, price_tier, owner_division FROM app_catalog WHERE status='listed' ORDER BY price_usd DESC")
+    c.execute("SELECT app_slug, app_name, category, description, price_usd, price_tier, owner_division FROM app_catalog WHERE status IN ('listed','ready') ORDER BY price_usd DESC")
     apps = [dict(r) for r in c.fetchall()]
     c.execute("SELECT DISTINCT category FROM app_catalog ORDER BY category")
     categories = [r[0] for r in c.fetchall()]
-    c.execute("SELECT COUNT(*), COALESCE(SUM(price_usd),0) FROM app_catalog WHERE status='listed'")
+    c.execute("SELECT COUNT(*), COALESCE(SUM(price_usd),0) FROM app_catalog WHERE status IN ('listed','ready')")
     total, cat_val = c.fetchone()
     conn.close()
     return {"ok": True, "total": total, "catalog_value": float(cat_val),
@@ -358,4 +421,9 @@ def health(): return {"ok": True, "service": "aios_client_portal", "tokens": len
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host='127.0.0.1', port=8091, log_level='info')
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", "8091")),
+        log_level="info"
+    )

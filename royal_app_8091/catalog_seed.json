@@ -1,0 +1,602 @@
+[
+  {
+    "app_slug": "royal-agents",
+    "app_name": "royal agents",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-architect",
+    "app_name": "royal architect",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-audit",
+    "app_name": "royal audit",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-bi",
+    "app_name": "royal bi",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-booking",
+    "app_name": "royal booking",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-books",
+    "app_name": "royal books",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-business",
+    "app_name": "royal business",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-care",
+    "app_name": "royal care",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-chat",
+    "app_name": "royal chat",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-classroom",
+    "app_name": "royal classroom",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-clinic",
+    "app_name": "royal clinic",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-code",
+    "app_name": "royal code",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-commerce",
+    "app_name": "royal commerce",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-connect",
+    "app_name": "royal connect",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-creator",
+    "app_name": "royal creator",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-crm",
+    "app_name": "royal crm",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-crop",
+    "app_name": "royal crop",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-data",
+    "app_name": "royal data",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-dental",
+    "app_name": "royal dental",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-devops",
+    "app_name": "royal devops",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-factory",
+    "app_name": "royal factory",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-farm",
+    "app_name": "royal farm",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-field",
+    "app_name": "royal field",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-finance",
+    "app_name": "royal finance",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-flow",
+    "app_name": "royal flow",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-gov",
+    "app_name": "royal gov",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-green",
+    "app_name": "royal green",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-hotel",
+    "app_name": "royal hotel",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-hr",
+    "app_name": "royal hr",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-inventory",
+    "app_name": "royal inventory",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-invoice",
+    "app_name": "royal invoice",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-knowledge",
+    "app_name": "royal knowledge",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-learning",
+    "app_name": "royal learning",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-legal",
+    "app_name": "royal legal",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-livestock",
+    "app_name": "royal livestock",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-logistics",
+    "app_name": "royal logistics",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-marketing",
+    "app_name": "royal marketing",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-media",
+    "app_name": "royal media",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-pharmacy",
+    "app_name": "royal pharmacy",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-projects",
+    "app_name": "royal projects",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-property",
+    "app_name": "royal property",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-qa",
+    "app_name": "royal qa",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-research",
+    "app_name": "royal research",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-restaurant",
+    "app_name": "royal restaurant",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-risk",
+    "app_name": "royal risk",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-sales",
+    "app_name": "royal sales",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-secure",
+    "app_name": "royal secure",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-spend",
+    "app_name": "royal spend",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-studio",
+    "app_name": "royal studio",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-supply",
+    "app_name": "royal supply",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-support",
+    "app_name": "royal support",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-talent",
+    "app_name": "royal talent",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-team",
+    "app_name": "royal team",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-trade",
+    "app_name": "royal trade",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-translate",
+    "app_name": "royal translate",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-travel",
+    "app_name": "royal travel",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-tutor",
+    "app_name": "royal tutor",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-venue",
+    "app_name": "royal venue",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-wellness",
+    "app_name": "royal wellness",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  },
+  {
+    "app_slug": "royal-writer",
+    "app_name": "royal writer",
+    "category": "business",
+    "description": "",
+    "price_usd": 0.0,
+    "price_tier": "",
+    "owner_division": "",
+    "status": "ready"
+  }
+]
