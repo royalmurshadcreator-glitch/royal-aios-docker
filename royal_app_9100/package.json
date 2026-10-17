@@ -1,0 +1,23 @@
+{
+  "name": "royal-jarvis-orchestrator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ROYAL JARVIS AIOS - Task Orchestration Core (BUILD #1). Zero-dependency integration layer: task lifecycle, queue, confirmation, cancellation, history, events, http API adapter.",
+  "main": "src/orchestrator.cjs",
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "scripts": {
+    "test": "node --test",
+    "test:verbose": "node --test --test-reporter=spec"
+  },
+  "dependencies": {},
+  "keywords": [
+    "royal-jarvis",
+    "aios",
+    "orchestrator",
+    "task-queue",
+    "local-first"
+  ],
+  "license": "UNLICENSED"
+}

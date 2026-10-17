@@ -1,0 +1,80 @@
+'use strict';
+
+/**
+ * memory-writer.cjs
+ * Bridge from the Node orchestrator to the Python Memory Palace.
+ * Fire-and-forget: spawns a short-lived Python process that writes the
+ * episode. Never blocks the orchestrator; failures are logged, not thrown.
+ */
+
+const { spawn } = require('child_process');
+const path = require('path');
+
+const PYTHON = process.env.ROYAL_MURSHAD_PYTHON || path.resolve(__dirname, '..', '..', '..', '..', '..', '18_ENV', '.venv', 'Scripts', 'python.exe');
+const MEM_DIR = process.env.ROYAL_MURSHAD_MEMORY_DIR || path.resolve(__dirname, '..', '..', '..', '..', '..', '04_MEMORY', 'aios_memory');
+
+function safeStr(v, max = 500) {
+  if (v === null || v === undefined) return null;
+  const s = typeof v === 'string' ? v : JSON.stringify(v);
+  return s.slice(0, max);
+}
+
+/**
+ * Write an episode to the Memory Palace.
+ * @param {object} episode
+ * @param {string} episode.agent
+ * @param {string} episode.command
+ * @param {string} [episode.taskId]
+ * @param {boolean} episode.success
+ * @param {string} [episode.result]
+ * @param {string} [episode.error]
+ * @param {string} [episode.source]
+ * @param {object} [episode.extra]
+ */
+function writeEpisode(episode) {
+  const payload = {
+    agent: episode.agent || 'unknown',
+    command: safeStr(episode.command, 500),
+    task_id: episode.taskId || null,
+    success: !!episode.success,
+    result: safeStr(episode.result, 2000),
+    error: safeStr(episode.error, 500),
+    source: episode.source || null,
+    extra: episode.extra || {},
+  };
+
+  const pyCode = `
+import sys, json
+sys.path.insert(0, r"${MEM_DIR}")
+from aios_memory_palace import PALACE
+payload = json.loads(r'''${JSON.stringify(payload).replace(/'/g, "\\'")}''')
+print(json.dumps(PALACE.save_episode(
+  agent=payload["agent"],
+  command=payload["command"],
+  task_id=payload["task_id"],
+  success=payload["success"],
+  result=payload["result"],
+  error=payload["error"],
+  source=payload["source"],
+  extra=payload["extra"],
+)))
+`;
+
+  const child = spawn(PYTHON, ['-c', pyCode], { stdio: ['ignore', 'pipe', 'pipe'] });
+  let out = '';
+  let err = '';
+  child.stdout.on('data', (d) => (out += d.toString()));
+  child.stderr.on('data', (d) => (err += d.toString()));
+  child.on('close', (code) => {
+    if (code !== 0) {
+      // eslint-disable-next-line no-console
+      console.error('[memory-writer] python exited', code, err.slice(0, 300));
+    }
+  });
+  child.on('error', (e) => {
+    // eslint-disable-next-line no-console
+    console.error('[memory-writer] spawn failed', e.message);
+  });
+}
+
+module.exports = { writeEpisode };
